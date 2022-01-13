@@ -13,8 +13,8 @@ services:
     environment:
       APP_ID: "${APP_NAME}"
       TZ: "Europe/Berlin"
-    # volumes:
-    #   - ../app:/app
+    volumes:
+      - ../app:/app
     # mem_limit: 300m
     # mem_reservation: 100m
     command: sleep infinity
