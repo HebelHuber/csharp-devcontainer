@@ -1,0 +1,31 @@
+version: '3.7'
+
+networks:
+  traefik:
+    external: true
+
+services:
+  socketio-csharp:
+    container_name: ${APP_NAME}
+    build:
+      context: .
+    restart: unless-stopped
+    environment:
+      APP_ID: "${APP_NAME}"
+      TZ: "Europe/Berlin"
+    # volumes:
+    #   - ../app:/app
+    # mem_limit: 300m
+    # mem_reservation: 100m
+    command: sleep infinity
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+
+      - traefik.http.routers.${ROUTER_NAME}.entryPoints=websecure
+      - traefik.http.routers.${ROUTER_NAME}.middlewares=CORS@file
+      - traefik.http.routers.${ROUTER_NAME}.rule=(Host(`${DOMAIN}`) &&
+        PathPrefix(`/${APP_NAME}`))
+      - traefik.http.services.${ROUTER_NAME}.loadbalancer.server.port=3000
+      - traefik.http.routers.${ROUTER_NAME}.service=${ROUTER_NAME}

@@ -1,0 +1,17 @@
+{
+    "name": "dotnetcore 3.1 dev container",
+    "dockerComposeFile": [
+        "./docker-compose.yml"
+    ],
+    "service": "socketio-csharp",
+    "workspaceFolder": "/app",
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "josefpihrt-vscode.roslynator",
+        "formulahendry.dotnet-test-explorer",
+        "eamodio.gitlens",
+        "mhutchie.git-graph"
+    ],
+    "remoteUser": "developer",
+    "shutdownAction": "stopCompose"
+}
