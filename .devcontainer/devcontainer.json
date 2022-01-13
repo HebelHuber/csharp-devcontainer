@@ -7,11 +7,11 @@
     "workspaceFolder": "/app",
     "extensions": [
         "ms-dotnettools.csharp",
-        "josefpihrt-vscode.roslynator",
-        "formulahendry.dotnet-test-explorer",
+        // "josefpihrt-vscode.roslynator",
+        // "formulahendry.dotnet-test-explorer",
         "eamodio.gitlens",
         "mhutchie.git-graph"
     ],
-    "remoteUser": "developer",
+    // "remoteUser": "developer",
     "shutdownAction": "stopCompose"
 }

@@ -10,9 +10,9 @@ services:
     build:
       context: .
     restart: unless-stopped
-    environment:
-      APP_ID: "${APP_NAME}"
-      TZ: "Europe/Berlin"
+    # environment:
+    #   APP_ID: "${APP_NAME}"
+    #   TZ: "Europe/Berlin"
     volumes:
       - ../app:/app
     # mem_limit: 300m
@@ -26,6 +26,6 @@ services:
       - traefik.http.routers.${ROUTER_NAME}.entryPoints=websecure
       - traefik.http.routers.${ROUTER_NAME}.middlewares=CORS@file
       - traefik.http.routers.${ROUTER_NAME}.rule=(Host(`${DOMAIN}`) &&
-        PathPrefix(`/${APP_NAME}`))
+        PathPrefix(`/${APP_ID}`))
       - traefik.http.services.${ROUTER_NAME}.loadbalancer.server.port=3000
       - traefik.http.routers.${ROUTER_NAME}.service=${ROUTER_NAME}
