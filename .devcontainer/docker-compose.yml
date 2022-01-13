@@ -10,6 +10,8 @@ services:
     build:
       context: .
     restart: unless-stopped
+    env_file:
+      - .env
     # environment:
     #   APP_ID: "${APP_NAME}"
     #   TZ: "Europe/Berlin"
